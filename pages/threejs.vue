@@ -3,7 +3,7 @@
     <h1 class="text-center">3D</h1>
     <div class="h-96">
       <ClientOnly>
-        <Landing />
+        <Landing :panoramaUrl=panoramaUrl />
         <template #fallback>
           <!-- this will be rendered on server side -->
           <p>Landing is loading...</p>
@@ -12,3 +12,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const panoramaUrl = '/img/p.jpg';
+</script>

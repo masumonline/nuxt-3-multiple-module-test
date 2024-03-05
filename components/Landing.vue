@@ -14,12 +14,11 @@ const container = ref()
 
 const props = defineProps({
   panoramaUrl: {
-    type: String,
-    default: "img/p.jpg"
+    type: String
   },
 });
 
-let camera, scene, renderer;
+let camera: PerspectiveCamera, scene: Scene, renderer: WebGLRenderer;
 let isUserInteracting = false,
   onPointerDownMouseX = 0, onPointerDownMouseY = 0,
   lon = 0, onPointerDownLon = 0,
@@ -37,7 +36,7 @@ const onWindowResize = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-const onPointerDown = (event) => {
+const onPointerDown = (event: { isPrimary: boolean; clientX: number; clientY: number; }) => {
   if (event.isPrimary === false) return;
   isUserInteracting = true;
   onPointerDownMouseX = event.clientX;
@@ -48,7 +47,7 @@ const onPointerDown = (event) => {
   document.addEventListener('pointerup', onPointerUp);
 }
 
-const onPointerMove = (event) => {
+const onPointerMove = (event: { isPrimary: boolean; clientX: number; clientY: number; }) => {
   if (event.isPrimary === false) return;
   lon = (onPointerDownMouseX - event.clientX) * 0.1 + onPointerDownLon;
   lat = (event.clientY - onPointerDownMouseY) * 0.1 + onPointerDownLat;
@@ -61,7 +60,7 @@ const onPointerUp = () => {
   document.removeEventListener('pointerup', onPointerUp);
 }
 
-const onDocumentMouseWheel = (event) => {
+const onDocumentMouseWheel = (event: { deltaY: number; }) => {
   const fov = camera.fov + event.deltaY * 0.05;
   camera.fov = MathUtils.clamp(fov, 10, 75);
   camera.updateProjectionMatrix();
@@ -87,7 +86,7 @@ const update = () => {
   renderer.render(scene, camera);
 }
 
-const dragover = (event) => {
+const dragover = (event: { preventDefault: () => void; dataTransfer: { dropEffect: string; }; }) => {
   event.preventDefault();
   event.dataTransfer.dropEffect = 'copy';
 }
@@ -100,7 +99,7 @@ const dragleave = () => {
   document.body.style.opacity = 1;
 }
 
-const load1 = (event) => {
+const load1 = (event: { target: { result: any; }; }) => {
   material.map.image.src = event.target.result;
   material.map.needsUpdate = true;
 }
@@ -140,7 +139,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   reader.removeEventListener('load', load1);
-  container.value.replaceWith(container.value.cloneNode(true));
+  // container.value.replaceWith(container.value.cloneNode(true));
   document.removeEventListener('wheel', onDocumentMouseWheel);
   document.removeEventListener('dragover', dragover);
   document.removeEventListener('dragenter', dragenter);
