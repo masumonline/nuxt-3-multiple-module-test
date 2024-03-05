@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto">
+    <h1>{{ $t('_hello') }}</h1>
     <button @click="showSingle" class="p-3 bg-gray-800 text-white my-2 rounded">Show single picture.</button>
 
     <section class="text-gray-600 body-font">

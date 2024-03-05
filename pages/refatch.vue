@@ -1,6 +1,7 @@
 <template>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-12 mx-auto">
+      <h1>{{ $t('_hello') }}</h1>
       <button @click="refatch" class="p-2 bg-gray-300 text-black my-2">Refatch</button>
       <div class="flex flex-wrap -m-4">
         <div class="lg:w-1/4 md:w-1/2 p-4 w-full" v-for="photo in data">

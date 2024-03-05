@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto">
+    <h1>{{ $t('_hello') }}</h1>
     <span>search value: </span>
     <input type="search" v-model="searchValue">
     <br />

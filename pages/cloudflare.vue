@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto">
+    <h1>{{ $t('_hello') }}</h1>
     <h1>Hi</h1>
     <form @submit.prevent="onSubmit">
       <NuxtTurnstile v-model="token" />

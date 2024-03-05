@@ -30,6 +30,9 @@ export default defineNuxtConfig({
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/unitas/image/upload/v1682010450/'
     },
+    unsplash: {
+      baseURL: 'https://images.unsplash.com'
+    },
     screens: {
       'xs': 320,
       'sm': 640,
@@ -49,7 +52,7 @@ export default defineNuxtConfig({
   seo: {
     redirectToCanonicalSiteUrl: true
   },
-  sitemap:{
+  sitemap: {
     exclude: ['/mock'],
   },
   robots: {
@@ -59,4 +62,14 @@ export default defineNuxtConfig({
   turnstile: {
     siteKey: '0x4AAAAAAATFhmzvzGdacrV4',
   },
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode'
+  }
 })

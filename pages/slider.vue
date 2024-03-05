@@ -11,7 +11,8 @@ const slides = ref(Array.from({ length: 10 }, () => {
 </script>
 
 <template>
-  <div>
+  <div class="container mx-auto">
+    <h1>{{ $t('_hello') }}</h1>
     <h2 class="p-3 text-center">Swiper Card Effect</h2>
     <Swiper class="swiper-cards" :width="240" :modules="[SwiperAutoplay, SwiperEffectCards]" :slides-per-view="1"
       :loop="true" :effect="'cards'" :autoplay="{
