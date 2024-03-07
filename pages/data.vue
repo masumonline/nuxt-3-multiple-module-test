@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { Header } from "vue3-easy-data-table"
+import type { Header } from "vue3-easy-data-table";
+const data = useState('users')
 
 const headers: Header[] = [
   { text: "Name", value: "name" },
@@ -21,5 +22,9 @@ const headers: Header[] = [
   { text: "City", value: "address.city" },
 ]
 
-const { data, error } = await useFetch('https://jsonplaceholder.typicode.com/users');
+await callOnce(async () => {
+  data.value = await $fetch('https://jsonplaceholder.typicode.com/users')
+})
+
+// const { data, error } = await useFetch('https://jsonplaceholder.typicode.com/users');
 </script>

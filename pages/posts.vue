@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <h1>{{ $t('_hello') }}</h1>
     <span>search value: </span>
-    <input type="search" v-model="searchValue">
+    <input type="search" v-model="searchValue" class="p-2 border rounded">
     <br />
     <EasyDataTable :headers="headers" :items="data" header-text-direction="center" buttons-pagination show-index
       :sort-by="sortBy" :sort-type="sortType" :search-value="searchValue" alternating>
@@ -16,13 +16,13 @@
 </template>
 
 <script lang="ts" setup>
-const perpage = ref(6);
+const data = useState('posts');
 const sortBy = "title";
 const sortType = "asc";
 
 const searchValue = ref("");
 
-//01718118122
+//01718118122CB3334361
 const headers = [
   { text: "User ID", value: "userId", width: 100 },
   { text: "ID", value: "id", sortable: true },
@@ -30,7 +30,8 @@ const headers = [
   { text: "Body", value: "body" },
 ];
 
-const { data, error } = await useFetch(`https://jsonplaceholder.typicode.com/posts`);
-console.log(perpage.value)
+await callOnce(async () => {
+  data.value = await $fetch('https://jsonplaceholder.typicode.com/posts')
+})
 
 </script>

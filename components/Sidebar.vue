@@ -108,6 +108,10 @@ const menus = [
     name: 'Images'
   },
   {
+    path: '/cloudinary',
+    name: 'Cloudinary'
+  },
+  {
     path: '/lightbox',
     name: 'Lightbox'
   },
@@ -126,6 +130,10 @@ const menus = [
   {
     path: '/refatch',
     name: 'Refatch'
+  },
+  {
+    path: '/count',
+    name: 'Count'
   },
   {
     path: '/cloudflare',

@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto bg-gray-100">
-    <h1 class="text-center">
+    <h1 class="text-center dark:text-black">
       {{ $t('_welcome') }}
     </h1>
   </div>

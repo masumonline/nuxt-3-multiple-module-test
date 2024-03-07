@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxtjs/turnstile',
     '@tresjs/nuxt',
+    '@pinia/nuxt'
   ],
   i18n: {
     vueI18n: './i18n.config.ts',
@@ -71,5 +72,12 @@ export default defineNuxtConfig({
     classPrefix: '',
     classSuffix: '',
     storageKey: 'nuxt-color-mode'
+  },
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME
+  },
+  runtimeConfig: {
+    apikey: process.env.CLOUDINARY_API_KEY,
+    secret: process.env.CLOUDINARY_API_SECRET
   }
 })
