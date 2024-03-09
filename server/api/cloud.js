@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     .with_field('context')
     .expression('resource_type:image')
     .sort_by('public_id', 'desc')
-    .max_results(30)
+    .max_results(11)
     .execute();
 
   return {

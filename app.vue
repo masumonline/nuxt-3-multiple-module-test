@@ -1,5 +1,6 @@
 <template>
   <NuxtLoadingIndicator />
+  <SpeedInsights />
   <div class="container mx-auto">
     <div class="flex">
       <div class="w-2/12" v-if="show">
@@ -26,6 +27,7 @@
 </template>
 
 <script setup>
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 const show = ref(true);
 const toggle = () => {
   show.value = !show.value;
