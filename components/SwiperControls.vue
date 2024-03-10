@@ -1,8 +1,12 @@
 <script setup>
-const swiper = useSwiper()
+const swiper = useSwiper();
 </script>
 
 <template>
-  <button @click="swiper.slideNext()" class="p-2 bg-gray-300 text-black m-1">Next</button>
-  <button @click="swiper.slidePrev()" class="p-2 bg-gray-300 text-black">Previous</button>
+  <button @click="swiper.slideNext()" class="m-1 bg-gray-300 p-2 text-black">
+    Next
+  </button>
+  <button @click="swiper.slidePrev()" class="bg-gray-300 p-2 text-black">
+    Previous
+  </button>
 </template>

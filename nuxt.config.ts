@@ -50,9 +50,6 @@ export default defineNuxtConfig({
     indexable: false,
     debug: true
   },
-  seo: {
-    redirectToCanonicalSiteUrl: true
-  },
   sitemap: {
     exclude: ['/mock'],
   },
@@ -79,5 +76,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apikey: process.env.CLOUDINARY_API_KEY,
     secret: process.env.CLOUDINARY_API_SECRET
-  }
+  },
+
 })

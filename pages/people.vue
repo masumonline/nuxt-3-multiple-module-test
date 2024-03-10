@@ -1,9 +1,13 @@
 <template>
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <h1>{{ $t('_hello') }}</h1>
-      <div class="flex flex-wrap -m-4">
-        <div class="lg:w-1/4 md:w-1/2 p-4 w-full" v-for="(people, index) in peoples" :key="index">
+  <section class="body-font text-gray-600">
+    <div class="container mx-auto px-5 py-24">
+      <h1>{{ $t("_hello") }}</h1>
+      <div class="-m-4 flex flex-wrap">
+        <div
+          class="w-full p-4 md:w-1/2 lg:w-1/4"
+          v-for="(people, index) in peoples"
+          :key="index"
+        >
           <People :people="people" />
         </div>
       </div>
@@ -12,6 +16,6 @@
 </template>
 
 <script setup>
-const { data, pending, error, refresh } = await useFetch('/api/images');
+const { data, pending, error, refresh } = await useFetch("/api/peoples");
 let peoples = await data.value.data.results;
 </script>

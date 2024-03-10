@@ -31,6 +31,8 @@
     "@nuxtjs/turnstile": "latest",
     "@tresjs/nuxt": "latest",
     "@vite-pwa/nuxt": "^0.5.0",
-    "nuxt-swiper": "^1.2.2"
+    "nuxt-swiper": "^1.2.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.12"
   }
 }

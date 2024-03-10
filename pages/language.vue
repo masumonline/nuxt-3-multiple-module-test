@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const { t } = useI18n({
-  useScope: 'local'
-})
+  useScope: "local",
+});
 </script>
 
 <template>
   <div class="container mx-auto">
-    <p>{{ t('hello') }}</p>
-    <p>{{ t('world') }}</p>
+    <p>{{ t("hello") }}</p>
+    <p>{{ t("world") }}</p>
   </div>
 </template>
 

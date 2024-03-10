@@ -2,23 +2,34 @@
   <div class="container mx-auto">
     <h1>{{ $t("_hello") }}</h1>
     <span>search value: </span>
-    <input type="search" v-model="searchValue" class="rounded border p-2" />
+    <input
+      type="search"
+      v-model="searchValue"
+      class="mb-2 rounded border p-2 text-black"
+    />
     <br />
     <EasyDataTable
       :headers="headers"
       :items="data"
-      :rows-per-page="5"
+      :rows-per-page="10"
       :sort-by="sortBy"
       :sort-type="sortType"
       :search-value="searchValue"
+      :rows-per-page-message="'rows'"
       header-text-direction="center"
       buttons-pagination
-      show-index
       alternating
+      border-cell
     >
-      <template #expand="data">
-        <div style="padding: 15px">{{ data.title }} won championships</div>
+      <template #empty-message>
+        <a href="https://google.com">nothing here</a>
       </template>
+      <template #item-thumbnailUrl="{ thumbnailUrl, title }">
+        <div class="player-wrapper">
+          <img class="h-8 w-8 rounded-full" :src="thumbnailUrl" :alt="title" />
+        </div>
+      </template>
+
       <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
         <button
           :disabled="isFirstPage"
@@ -40,7 +51,6 @@
 </template>
 
 <script lang="ts" setup>
-const data = useState("posts");
 const sortBy = "title";
 const sortType = "asc";
 const dataTable = ref();
@@ -50,21 +60,14 @@ const isLastPage = computed(() => dataTable.value?.isLastPage);
 
 //01718118122CB3334361
 const headers = [
-  { text: "User ID", value: "userId", width: 100 },
-  { text: "ID", value: "id", sortable: true },
+  { text: "ID", value: "id", sortable: true, width: 100 },
+  { text: "Thumbnail", value: "thumbnailUrl", sortable: true, width: 100 },
   { text: "Title", value: "title", sortable: true },
-  { text: "Body", value: "body" },
+  { text: "URL", value: "url" },
 ];
 
-await callOnce(async () => {
-  data.value = await $fetch("https://jsonplaceholder.typicode.com/posts");
-});
-
-const prevPage = () => {
-  dataTable.value.prevPage();
-};
-
-const nextPage = () => {
-  dataTable.value.nextPage();
-};
+// const data = ref([]);
+const { data, pending, error, refresh } = await useFetch(
+  "https://jsonplaceholder.typicode.com/photos?_limit=100",
+);
 </script>

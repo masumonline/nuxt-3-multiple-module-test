@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <h1>{{ $t('_hello') }}</h1>
+    <h1>{{ $t("_hello") }}</h1>
     <h1>Hi</h1>
     <form @submit.prevent="onSubmit">
       <NuxtTurnstile v-model="token" />
@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-const token = ref('');
+const token = ref("");
 const onSubmit = () => {
   console.log(token.value);
-}
+};
 </script>
