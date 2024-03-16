@@ -16,7 +16,8 @@
       />
     </div>
     <div class="flex p-3">
-      <NuxtImg src="/bg.jpg" alt="NuxtImg" width="100" />
+      <NuxtImg src="/bg.jpg" alt="NuxtImg" width="600" />
+      <NuxtPicture format="avif,webp" src="/monitor.png" />
     </div>
   </div>
 </template>

@@ -8,30 +8,28 @@
       </div>
       <div class="container mx-auto p-3">
         <div class="flex">
-          <button @click="toggle" class="bg-gray-100 text-black rounded flex flex-col px-3 py-2">
+          <button
+            @click="toggle"
+            class="flex flex-col rounded bg-gray-100 px-3 py-2 text-black"
+          >
             <span v-if="show">X</span>
             <span v-else>-></span>
           </button>
-          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 mx-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-            stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-            viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-        </a>
-      </div>
+        </div>
+        <Navbar />
         <NuxtPage />
       </div>
     </div>
+    <UNotifications />
   </div>
 </template>
 
 <script setup>
-import { SpeedInsights } from '@vercel/speed-insights/vue';
+import { SpeedInsights } from "@vercel/speed-insights/vue";
 const show = ref(true);
 const toggle = () => {
   show.value = !show.value;
-}
+};
 </script>
 
 <style>

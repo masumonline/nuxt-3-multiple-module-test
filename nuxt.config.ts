@@ -5,8 +5,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/devtools',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode',
+    '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxt/image',
     "@nuxtjs/cloudinary",
@@ -14,8 +13,13 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxtjs/turnstile',
     '@tresjs/nuxt',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
   ],
+  nitro: {
+    experimental: {
+      websocket: true
+    }
+  },
   i18n: {
     vueI18n: './i18n.config.ts',
     baseUrl: 'http://localhost:3300',
@@ -77,5 +81,7 @@ export default defineNuxtConfig({
     apikey: process.env.CLOUDINARY_API_KEY,
     secret: process.env.CLOUDINARY_API_SECRET
   },
-
+  routeRules: {
+    '/data': { swr: true },
+  }
 })

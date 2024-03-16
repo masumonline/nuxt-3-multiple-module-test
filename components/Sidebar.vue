@@ -20,9 +20,9 @@
             d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
           ></path>
         </svg>
-        <span class="ml-3 text-xl dark:text-white"
-          >{{ $t("_logo") }} {{ $t("_country") }}</span
-        >
+        <span class="ml-3 text-xl dark:text-white">
+          {{ $t("_logo") }} {{ $t("_country") }}
+        </span>
       </a>
 
       <ul class="mt-6 space-y-1">
@@ -31,8 +31,8 @@
             :to="localePath(menu.path)"
             class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-400 hover:bg-gray-600"
           >
-            {{ menu.name }}</NuxtLink
-          >
+            {{ menu.name }}
+          </NuxtLink>
         </li>
         <li>
           <details class="group [&_summary::-webkit-details-marker]:hidden">
@@ -78,6 +78,7 @@
                 </a>
               </li>
             </ul>
+            app
           </details>
         </li>
         <li>
@@ -137,6 +138,10 @@ const menus = [
   {
     path: "/language",
     name: "Language",
+  },
+  {
+    path: "/ui",
+    name: "UI",
   },
   {
     path: "/data",

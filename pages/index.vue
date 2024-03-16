@@ -3,10 +3,25 @@
     <h1 class="text-center dark:text-black">
       {{ $t("_welcome") }}
     </h1>
+    <NuxtImg
+      src="/home.jpg"
+      placeholder="./loading.svg"
+      width="400"
+      quality="80"
+      format="webp"
+      loading="lazy"
+      @load="doSomethingOnLoad"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
+const img = useImage();
+
+const doSomethingOnLoad = () => {
+  console.log("Image loaded");
+};
+
 useHead({
   templateParams: {
     blogCategory: "Tutorials",
